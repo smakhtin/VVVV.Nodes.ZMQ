@@ -65,9 +65,7 @@ namespace VVVV.Nodes.ZMQ
 
 		private void RemoveSockets(int spreadMax)
 		{
-			int count = FSockets.Count - spreadMax;
-
-			for (int i = FSockets.Count; i <= count; i--)
+			for (int i = FSockets.Count; i <= spreadMax; i--)
 			{
 				int index = i - 1;
 
