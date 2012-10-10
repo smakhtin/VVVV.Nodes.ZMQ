@@ -1,6 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+# SharpDevelop 4.2.2.8818
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVVV.Nodes.ZMQ", "VVVV.Nodes.ZMQ\VVVV.Nodes.ZMQ.csproj", "{D49D044C-7335-42BF-8D30-84C420E2C7D4}"
 EndProject
 Global
