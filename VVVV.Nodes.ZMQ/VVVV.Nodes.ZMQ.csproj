@@ -58,13 +58,11 @@
       <HintPath>..\packages\clrzmq.2.2.5\lib\clrzmq-ext.dll</HintPath>
     </Reference>
     <Reference Include="SlimDX">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\SlimDX.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\SlimDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition.Codeplex">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\System.ComponentModel.Composition.Codeplex.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\System.ComponentModel.Composition.Codeplex.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,24 +71,19 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="VVVV.Core">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.Core.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Core.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.Hosting">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.Hosting.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Hosting.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.PluginInterfaces">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.PluginInterfaces.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.PluginInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.Utils">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.Utils.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Utils.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.Utils3rdParty">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\vvvv_45beta28.1\lib\core\VVVV.Utils3rdParty.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Utils3rdParty.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

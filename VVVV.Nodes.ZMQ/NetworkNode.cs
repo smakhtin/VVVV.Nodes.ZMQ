@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using VVVV.PluginInterfaces.V2;
 using ZMQ;
 
@@ -19,6 +20,9 @@ namespace VVVV.Nodes.ZMQ
 		[Input("Threads Size", DefaultValue = 1, IsSingle = true, Visibility = PinVisibility.OnlyInspector)]
 		protected IDiffSpread<int> FThreadsSizeIn;
 
+		[Output("Status")] 
+		protected ISpread<string> FStatusOut; 
+
 		protected readonly Context FZmqContext = new Context(1);
 		
 		protected readonly List<Socket> FSockets = new List<Socket>();
@@ -31,6 +35,7 @@ namespace VVVV.Nodes.ZMQ
 			{
 				int index = i - 1;
 
+				FSockets[index].Unsubscribe("", Encoding.UTF8);
 				FSockets[index].Dispose();
 				FSockets.RemoveAt(index);
 			}

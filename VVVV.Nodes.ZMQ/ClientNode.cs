@@ -27,11 +27,11 @@ namespace VVVV.Nodes.ZMQ
 			{
 				if (!FEnabledIn[i]) continue;
 
-				Socket socket = FSockets[i];
+				var socket = FSockets[i];
 
 				if(FTransportIn.IsChanged || FServerIpIn.IsChanged || FPortIn.IsChanged)
 				{
-					socket.Bind(FTransportIn[i], FServerIpIn[i], FPortIn[i]);
+					socket.Connect(FTransportIn[i], FServerIpIn[i], FPortIn[i]);
 				}
 				
 				if(FSendIn[i])
@@ -48,6 +48,7 @@ namespace VVVV.Nodes.ZMQ
 			for (int i = 0; i < count; i++)
 			{
 				FSockets.Add(FZmqContext.Socket(SocketType.PUB));
+				FSockets[i].HWM = 2;
 			}
 		}
 	}

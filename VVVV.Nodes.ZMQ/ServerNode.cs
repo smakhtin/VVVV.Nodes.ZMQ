@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.Text;
 using VVVV.PluginInterfaces.V2;
 using ZMQ;
@@ -8,8 +8,8 @@ namespace VVVV.Nodes.ZMQ
 	[PluginInfo(Name="Server", Category = "ZMQ", Help = "Send and receive data via ZMQ", Tags = "network", AutoEvaluate = true)]
 	public class ServerNode : NetworkNode
 	{
-		[Input("Client IP", DefaultString = "*")]
-		private IDiffSpread<string> FClientIpIn;
+		[Input("Local IP", DefaultString = "*")]
+		private IDiffSpread<string> FLocalIpIn;
 		
 		[Output("Message")] 
 		protected ISpread<string> FMessageOut;
@@ -17,6 +17,7 @@ namespace VVVV.Nodes.ZMQ
 		override public void Evaluate(int spreadMax)
 		{
 			FMessageOut.SliceCount = spreadMax;
+			FStatusOut.SliceCount = spreadMax;
 
 			if (spreadMax > FSockets.Count) AddSockets(spreadMax);
 			if (spreadMax < FSockets.Count) RemoveSockets(spreadMax);
@@ -25,25 +26,60 @@ namespace VVVV.Nodes.ZMQ
 			{
 				if (!FEnabledIn[i]) continue;
 
-				Socket socket = FSockets[i];
+				var socket = FSockets[i];
 
-				if(FTransportIn.IsChanged || FClientIpIn.IsChanged || FPortIn.IsChanged)
+				if(FTransportIn.IsChanged || FLocalIpIn.IsChanged || FPortIn.IsChanged)
 				{
-					socket.Connect(FTransportIn[i], FClientIpIn[i], FPortIn[i]);
-					socket.Subscribe("", Encoding.UTF8);
+					try
+					{
+						socket.Unsubscribe("", Encoding.UTF8);
+					}
+					catch (Exception e)
+					{
+						FStatusOut[i] = e.Message;
+					}
+					
+					try
+					{
+						socket.Bind(FTransportIn[i], FLocalIpIn[i], FPortIn[i]);
+						FStatusOut[i] = "Binded";
+					}
+					catch (Exception e)
+					{
+						FStatusOut[i] = e.Message;
+					}
+
+					try
+					{
+						socket.Subscribe("", Encoding.UTF8);
+					}
+					catch (Exception e)
+					{
+						FStatusOut[i] = e.Message;
+					}
+					
 				}
-				
-				FMessageOut[i] = socket.Recv(Encoding.UTF8, SendRecvOpt.NOBLOCK);
+
+				try
+				{
+					var result = socket.RecvAll(Encoding.UTF8, SendRecvOpt.NOBLOCK);
+					FMessageOut[i] = result.First();
+				}
+				catch (Exception e)
+				{
+					FStatusOut[i] = e.Message;
+				}
 			}
 		}
 		
 		override protected void AddSockets(int spreadMax)
 		{
-			int count = spreadMax - FSockets.Count;
+			var count = spreadMax - FSockets.Count;
 
-			for (int i = 0; i < count; i++)
+			for (var i = 0; i < count; i++)
 			{
 				FSockets.Add(FZmqContext.Socket(SocketType.SUB));
+				FSockets[i].HWM = 2;
 			}
 		}
 	}
