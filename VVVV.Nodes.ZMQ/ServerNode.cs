@@ -5,7 +5,7 @@ using ZMQ;
 
 namespace VVVV.Nodes.ZMQ
 {
-	[PluginInfo(Name="Server", Category = "ZMQ", Help = "Send and receive data via ZMQ", Tags = "network", AutoEvaluate = true)]
+	[PluginInfo(Name="Server", Category = "ZMQ", Help = "Receive data via ZMQ", Tags = "network", AutoEvaluate = true)]
 	public class ServerNode : NetworkNode
 	{
 		[Input("Local IP", DefaultString = "*")]

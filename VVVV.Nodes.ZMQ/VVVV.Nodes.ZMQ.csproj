@@ -59,10 +59,12 @@
     </Reference>
     <Reference Include="SlimDX">
       <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\SlimDX.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition.Codeplex">
       <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\System.ComponentModel.Composition.Codeplex.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -72,18 +74,23 @@
     <Reference Include="System.Xml" />
     <Reference Include="VVVV.Core">
       <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Hosting">
       <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Hosting.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.PluginInterfaces">
       <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.PluginInterfaces.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Utils">
       <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Utils.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Utils3rdParty">
       <HintPath>C:\vvvv\vvvv_45beta30_x86_DX11\lib\core\VVVV.Utils3rdParty.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
